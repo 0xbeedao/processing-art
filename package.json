@@ -1,0 +1,8 @@
+{
+  "name": "artcode",
+  "version": "1.0.0",
+  "description": "Processing code for programmatic art",
+  "main": "index.js",
+  "author": "0xbigbee@protonmail.com",
+  "license": "MIT"
+}
