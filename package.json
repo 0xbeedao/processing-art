@@ -1,8 +1,31 @@
 {
-  "name": "artcode",
-  "version": "1.0.0",
-  "description": "Processing code for programmatic art",
-  "main": "index.js",
-  "author": "0xbigbee@protonmail.com",
-  "license": "MIT"
+	"name": "artcode",
+	"version": "1.0.0",
+	"description": "Processing code for programmatic art",
+	"main": "index.js",
+	"author": "0xbigbee@protonmail.com",
+	"license": "MIT",
+	"scripts": {
+		"test": "prettier --check .",
+		"lint:fix": "prettier --write .",
+		"lint": "prettier --check .",
+		"dev": "live-server --port=8080 --host=localhost --entry-file=index.html"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/0xbeedao/processing-art.git"
+	},
+	"keywords": [
+		"art",
+		"processing",
+		"creative-coding"
+	],
+	"bugs": {
+		"url": "https://github.com/0xbeedao/processing-art/issues"
+	},
+	"homepage": "https://github.com/0xbeedao/processing-art#readme",
+	"devDependencies": {
+		"live-server": "^1.2.2",
+		"prettier": "^2.8.8"
+	}
 }
