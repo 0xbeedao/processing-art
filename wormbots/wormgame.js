@@ -16,9 +16,11 @@ let round = -1;
 let roundWorms = [];
 let showConfigPanel = false;
 let modal = null;
+let canvas;
 
 function setup() {
-	createCanvas(windowWidth - 10, windowHeight - 10);
+	canvas = createCanvas(windowWidth - 10, windowHeight - 10);
+	console.log("canvas", canvas);
 	background("white");
 	stroke("black");
 	strokeWeight(4);
@@ -52,9 +54,9 @@ function nextRound() {
 function draw() {
 	if (showConfigPanel) {
 		if (!modal) {
-			modal = new ConfigPanel(toggleConfigPanel);
+			modal = new ConfigPanel(hideConfigPanel, canvas, {});
+			modal.show();
 		}
-		modal.draw();
 		return;
 	}
 	if (!activeWorm) {
@@ -142,7 +144,8 @@ function keyPressed(keyEvent) {
 			break;
 
 		case "Escape":
-			toggleConfigPanel();
+			if (showConfigPanel) hideConfigPanel();
+			else showConfigPanel = true;
 			break;
 
 		default:
@@ -151,8 +154,10 @@ function keyPressed(keyEvent) {
 	}
 }
 
-function toggleConfigPanel() {
-	showConfigPanel = !showConfigPanel;
+function hideConfigPanel() {
+	showConfigPanel = false;
+	modal.handleClose();
+	modal = null;
 }
 
 function toggleRunning() {
